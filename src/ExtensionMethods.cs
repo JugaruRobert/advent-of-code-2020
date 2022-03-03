@@ -21,6 +21,11 @@ namespace AdventOfCode
             return input.Words().Select(x => int.Parse(x)).ToList();
         }
 
+        public static IEnumerable<List<string>> Paragraphs(this string input)
+        {
+            return input.Split($"{Environment.NewLine}{Environment.NewLine}", StringSplitOptions.RemoveEmptyEntries)
+                        .Select(paragraph => paragraph.Split("\r\n", StringSplitOptions.RemoveEmptyEntries).ToList());
+        }
         public static IEnumerable<long> Longs(this string input)
         {
             return input.Words().Select(x => long.Parse(x)).ToList();
